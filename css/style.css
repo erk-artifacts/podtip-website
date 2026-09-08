@@ -1,0 +1,537 @@
+/* ============================================================
+   PodTip テスター募集ページのスタイル
+   ------------------------------------------------------------
+   色の考え方: ブランドのオレンジ（#E8590C）の「明るい面」と
+   「暗い面（焦げたような濃い茶）」だけでページを作っています。
+   ページ全体は暖かい紙色。再生画面デモのカードだけを「夜」にして、
+   アプリの持つ静けさと暖かさを両方見せるのがねらいです。
+   ============================================================ */
+
+/* ---------- 色・大きさの設定（ここを変えると全体が変わります） ---------- */
+:root {
+  --paper:      #FBF8F3;  /* ページの地（暖かい白） */
+  --paper-2:    #F3EBDF;  /* セクションを分けるときの面 */
+  --ink:        #26201A;  /* 本文の黒（暖かい黒） */
+  --ink-soft:   #5C5348;  /* 少し薄い黒 */
+  --muted:      #857A6D;  /* 注釈などの薄い色 */
+  --line:       #E6DCCC;  /* 罫線 */
+  --brand:      #E8590C;  /* ブランドのオレンジ（大きい場所用） */
+  --brand-strong:#C2410C; /* 小さい文字にも使える濃いオレンジ */
+  --ember:      #241812;  /* 夜の背景（オレンジの暗い面） */
+  --ember-ink:  #F3E7DA;  /* 夜の上の文字 */
+  --ember-soft: #E8C9B0;  /* 夜の上の薄い文字 */
+  --ember-acc:  #FF9A5C;  /* 夜の上の明るいオレンジ */
+
+  --radius: 14px;
+}
+
+/* ---------- 最初の整理（どのブラウザでも同じ見え方にする最低限） ---------- */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", "Yu Gothic",
+    Meiryo, "Noto Sans JP", sans-serif;
+  font-size: 15.5px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+h1, h2, h3 { line-height: 1.4; margin: 0; }
+h2 { font-size: 26px; font-weight: 800; letter-spacing: .01em; }
+p { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+a { color: var(--brand-strong); }
+
+/* キーボード操作の人に、いまどこにいるか見えるようにする */
+:focus-visible { outline: 2px solid var(--brand-strong); outline-offset: 2px; }
+
+/* ---------- 横幅の容器 ---------- */
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+.wrap-narrow { max-width: 680px; }
+
+/* ---------- ヘッダー ---------- */
+.site-header {
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+}
+.brand-icon { border-radius: 7px; }
+.badge {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  background: var(--paper-2);
+  border-radius: 4px;
+  padding: 2px 7px;
+  letter-spacing: .06em;
+}
+.header-link {
+  font-size: 13px;
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+}
+.header-link:hover { color: var(--brand-strong); border-color: var(--brand-strong); }
+
+/* ---------- セクション共通の余白 ---------- */
+.section { padding-top: 56px; padding-bottom: 56px; }
+.section-alt { background: var(--paper-2); }
+
+/* ============================================================
+   ヒーロー（一番伝えたいこと）
+   ============================================================ */
+.hero { padding-top: 48px; padding-bottom: 64px; }
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  color: var(--brand-strong);
+}
+.eyebrow::before {
+  content: "";
+  width: 18px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--brand);
+}
+
+.hero h1 {
+  margin-top: 18px;
+  font-size: clamp(30px, 7.2vw, 46px);
+  font-weight: 800;
+  font-feature-settings: "palt"; /* 和文の約物を詰めて、見出しを締める */
+  line-height: 1.35;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--brand-strong);
+}
+
+.lead {
+  margin-top: 20px;
+  max-width: 38em;
+  color: var(--ink-soft);
+}
+
+.hero-cta { margin-top: 30px; }
+.cta {
+  display: inline-block;
+  background: var(--brand);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 15px 30px;
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(232, 89, 12, .25);
+  transition: background .15s ease, transform .15s ease;
+}
+.cta:hover { background: #D9480F; transform: translateY(-1px); }
+.cta:active { transform: translateY(0); }
+.cta-note { margin-top: 12px; font-size: 13px; color: var(--muted); }
+
+/* ============================================================
+   再生画面のデモ（このページの顔）
+   ------------------------------------------------------------
+   アプリの再生画面のように、暗い面の上に
+   シークバーと ♡ ボタンを置いています。
+   ============================================================ */
+.player {
+  margin: 44px 0 0;
+  max-width: 560px;
+  padding: 20px;
+  border-radius: 20px;
+  background: linear-gradient(160deg, #2E1D13, #1F1410);
+  box-shadow: 0 18px 40px rgba(38, 32, 26, .35);
+}
+
+.player-now { display: flex; gap: 14px; align-items: center; }
+.player-art { border-radius: 12px; }
+.player-meta { min-width: 0; }
+.player-show {
+  font-size: 12.5px;
+  color: var(--ember-soft);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.player-dummy { font-size: 10.5px; opacity: .7; }
+.player-ep {
+  margin-top: 2px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ember-ink);
+}
+
+/* シークバー（再生位置のバー） */
+.player-seek {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+.player-time {
+  font-family: ui-monospace, "SF Mono", Consolas, "Courier New", monospace;
+  font-variant-numeric: tabular-nums; /* 数字の幅がそろって、カウントアップしても震えない */
+  font-size: 12.5px;
+  color: var(--ember-soft);
+  min-width: 4.5ch;
+}
+.player-total { text-align: right; }
+.seek-bar {
+  position: relative;
+  flex: 1;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(243, 231, 218, .16);
+}
+.seek-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #D9480F, #F08C2E); /* アートワークの支配色グラデの引用 */
+}
+
+/* ♡ のピン（応援が届いた位置の目印） */
+.seek-pin {
+  position: absolute;
+  bottom: 2px;
+  transform: translateX(-50%);
+  font-size: 13px;
+  line-height: 1;
+  color: var(--ember-acc);
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, .45));
+  pointer-events: none;
+  animation: pin-drop .35s ease-out;
+}
+.seek-pin::after { /* ♡ の下に、バー上の位置を示す点 */
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, 3px);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--ember-acc);
+}
+@keyframes pin-drop {
+  from { transform: translateX(-50%) translateY(-7px); opacity: 0; }
+  to   { transform: translateX(-50%) translateY(0);    opacity: 1; }
+}
+
+/* ♡ 応援ボタン */
+.player-actions { margin-top: 18px; }
+.tip-button {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+  background: var(--brand);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: inherit;
+  padding: 12px 22px;
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(232, 89, 12, .35);
+  transition: background .15s ease;
+}
+.tip-button:hover { background: #D9480F; }
+.tip-heart { font-size: 18px; }
+.tip-sub { font-size: 12px; font-weight: 500; opacity: .85; }
+.tip-button.bounce { animation: bounce .35s ease-out; }
+@keyframes bounce {
+  0%   { transform: scale(1); }
+  35%  { transform: scale(1.07); }
+  100% { transform: scale(1); }
+}
+
+.player-note {
+  margin-top: 10px;
+  font-size: 12.5px;
+  color: var(--ember-soft);
+}
+
+/* 「届きました」の一言表示 */
+.player-toast {
+  min-height: 1.4em;
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--ember-acc);
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+.player-toast.is-shown { opacity: 1; }
+
+.player-caption {
+  margin-top: 14px;
+  font-size: 12px;
+  color: var(--ember-soft);
+  border-top: 1px solid rgba(243, 231, 218, .14);
+  padding-top: 12px;
+}
+
+/* ============================================================
+   できること
+   ============================================================ */
+.audience { margin-top: 28px; display: grid; gap: 28px; }
+.aud h3 {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--brand-strong);
+}
+.aud-list { margin-top: 12px; display: grid; gap: 12px; }
+.aud-list li {
+  position: relative;
+  padding-left: 20px;
+  color: var(--ink-soft);
+}
+.aud-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--brand);
+}
+.aud-list strong { color: var(--ink); }
+
+.privacy-note {
+  margin-top: 28px;
+  font-size: 13px;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+
+/* ============================================================
+   アプリの画面（スクリーンショット）
+   ============================================================ */
+.shots {
+  margin-top: 28px;
+  display: grid;
+  gap: 18px;
+}
+.shots figure {
+  margin: 0;
+  aspect-ratio: 9 / 19.5;   /* スマホ画面の縦横比。画像がまだ無くても枠が崩れない */
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: #fff;
+  overflow: hidden;
+  position: relative;
+}
+.shots .screenshot {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.shots figcaption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 20px 14px 10px;
+  font-size: 12px;
+  color: #fff;
+  background: linear-gradient(transparent, rgba(0, 0, 0, .55));
+}
+
+/* 画像がまだ無いとき: 「準備中」の枠に切り替える（js/main.js が付けた印で判断） */
+.shots figure.is-missing { border-style: dashed; background: var(--paper); }
+.shots figure.is-missing .screenshot { display: none; }
+.shots figure.is-missing figcaption {
+  position: static;
+  padding: 0;
+  margin: 0;
+  background: none;
+  color: var(--muted);
+}
+.shots figure.is-missing::before {
+  content: "スクリーンショット準備中";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ============================================================
+   テスター募集要項
+   ============================================================ */
+.terms { margin-top: 28px; }
+.term {
+  display: grid;
+  gap: 4px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+.term dt {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--brand-strong);
+  letter-spacing: .08em;
+}
+.term dd { margin: 0; color: var(--ink-soft); }
+.todo { display: grid; gap: 6px; }
+.todo li { position: relative; padding-left: 22px; }
+.todo li::before {
+  content: counter(list-item) ".";
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+  color: var(--brand-strong);
+  font-variant-numeric: tabular-nums;
+}
+
+/* 「お金はかかりません」の強調枠 */
+.notice {
+  margin-top: 28px;
+  background: #FAF0E0;
+  border-left: 4px solid var(--brand);
+  border-radius: 10px;
+  padding: 18px 20px;
+}
+.notice h3 { font-size: 15.5px; font-weight: 800; color: var(--brand-strong); }
+.notice p { margin-top: 8px; font-size: 14px; color: var(--ink-soft); }
+.notice code {
+  font-family: ui-monospace, "SF Mono", Consolas, "Courier New", monospace;
+  background: rgba(194, 65, 12, .1);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.creator-call {
+  margin-top: 24px;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+/* ============================================================
+   参加は 3 ステップ
+   ============================================================ */
+.steps { margin-top: 28px; display: grid; gap: 28px; }
+.step { display: flex; gap: 18px; }
+.step-num {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--brand);
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--brand-strong);
+  font-variant-numeric: tabular-nums;
+}
+.step-body h3 { font-size: 17px; font-weight: 800; }
+.step-body p { margin-top: 6px; color: var(--ink-soft); }
+
+.button {
+  display: inline-block;
+  margin-top: 14px;
+  background: var(--brand);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 999px;
+  transition: background .15s ease;
+}
+.button:hover { background: #D9480F; }
+
+/* URL がまだ未設定のボタン（js/main.js が付けた印） */
+.is-pending { opacity: .55; cursor: default; }
+a.button.is-pending { background: var(--muted); }
+.inline-link.is-pending { color: var(--muted); text-decoration: none; }
+
+.steps-note { margin-top: 24px; font-size: 13.5px; color: var(--muted); }
+.inline-link { color: var(--brand-strong); }
+
+/* ============================================================
+   よくある質問（開閉する <details> を使っています）
+   ============================================================ */
+.faq { margin-top: 20px; }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 0;
+  font-size: 15px;
+  font-weight: 700;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+";
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--brand-strong);
+}
+.faq details[open] summary::after { content: "−"; }
+.faq details p { padding: 0 0 18px; color: var(--ink-soft); }
+
+/* ============================================================
+   開発者・フッター
+   ============================================================ */
+.dev-text { margin-top: 20px; color: var(--ink-soft); }
+
+.site-footer {
+  background: var(--ink);
+  color: #D8CCC0;
+  padding: 30px 0;
+  font-size: 13px;
+}
+.footer-brand { font-weight: 700; }
+.footer-note { margin-top: 6px; color: #9C8F82; }
+
+/* ============================================================
+   画面が広いとき（タブレット・パソコン）
+   ============================================================ */
+@media (min-width: 720px) {
+  .section { padding-top: 72px; padding-bottom: 72px; }
+
+  /* 「リスナーへ / 配信者へ」を左右に並べる */
+  .audience { grid-template-columns: 1fr 1fr; gap: 40px; }
+
+  /* スクリーンショットを 3 枚横並びに */
+  .shots { grid-template-columns: repeat(3, 1fr); }
+  .shots figure { max-width: 260px; }
+
+  /* 募集要項を見開きっぽく 2 列に */
+  .term { grid-template-columns: 9em 1fr; gap: 16px; }
+}
+
+/* ---------- 「動きを減らす」設定をしている人への配慮 ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .seek-pin { animation: none; }
+  .tip-button.bounce { animation: none; }
+  .cta, .tip-button, .player-toast { transition: none; }
+}

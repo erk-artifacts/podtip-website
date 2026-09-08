@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <!-- スマホ縦画面を基本にした設定（募集対象が Android スマホユーザーのため） -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>PodTip — ポッドキャスト投げ銭アプリ（テスター募集中）</title>
+  <meta name="description" content="好きなポッドキャストを聴いて、心に残った回に少額の応援を送れるアプリです。番組の検索・フォロー・続きから再生・キューに対応。Android クローズドテストのテスターを募集中です。">
+
+  <!-- SNS でシェアされたときの見え方（OGP）。URL は公開後の住所に合わせてある -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://erk-artifacts.github.io/podtip-website/">
+  <meta property="og:title" content="PodTip — ポッドキャスト投げ銭アプリ（テスター募集中）">
+  <meta property="og:description" content="聴いたその回に、“ありがとう”を届けられる Android アプリ。クローズドテストのテスターを募集中です（お金はかかりません）。">
+  <meta property="og:image" content="https://erk-artifacts.github.io/podtip-website/assets/icon.png">
+
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==================== ヘッダー ==================== -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <p class="brand">
+        <img class="brand-icon" src="assets/icon.png" alt="" width="28" height="28">
+        <span>PodTip</span>
+        <span class="badge">テスト版</span>
+      </p>
+      <a class="header-link" href="#join">参加要項へ</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ==================== ヒーロー（一番伝えたいこと） ==================== -->
+    <section class="hero">
+      <div class="wrap">
+        <p class="eyebrow">Android クローズドテスト実施中</p>
+        <h1>聴いたその回に、<br><em>“ありがとう”</em>を届けられる。</h1>
+        <p class="lead">
+          PodTip は、好きなポッドキャストを聴いて、心に残った回に少額の応援を送れるアプリです。
+          現在は公開前のテスト段階で、<strong>一緒に試してくださるテスターを募集中</strong>です。
+        </p>
+        <div class="hero-cta">
+          <a class="cta" href="#join">テスターに参加する（無料）</a>
+          <p class="cta-note">Google アカウントがあれば誰でも参加できます。いつでもやめられます。</p>
+        </div>
+
+        <!-- アプリの再生画面を模した「動くデモ」。
+             ♡ ボタンを押すと、いま聴いている位置にハートのピンが刺さります -->
+        <figure class="player">
+          <div class="player-now">
+            <img class="player-art" src="assets/icon.png" alt="" width="72" height="72">
+            <div class="player-meta">
+              <p class="player-show">サンデー・ミッドナイト・ラジオ<span class="player-dummy">（架空の番組の例）</span></p>
+              <p class="player-ep">第 42 回「深夜に聴きたくなる回について」</p>
+            </div>
+          </div>
+          <div class="player-seek">
+            <span class="player-time" id="timeNow">12:34</span>
+            <!-- このバーの内側に、JavaScript で「応援が届いた位置」のピンを刺します -->
+            <div class="seek-bar" id="seekBar">
+              <div class="seek-fill" id="seekFill"></div>
+            </div>
+            <span class="player-time player-total">32:00</span>
+          </div>
+          <div class="player-actions">
+            <button type="button" class="tip-button" id="tipDemo">
+              <span class="tip-heart" aria-hidden="true">♡</span>
+              応援する<span class="tip-sub">¥120・デモ</span>
+            </button>
+            <p class="player-note">♡ を押すと、いま聴いている位置に「ありがとう」が届きます（ページ内のお試しです）</p>
+          </div>
+          <!-- 押したときの「届きました」表示（音は出ません） -->
+          <p class="player-toast" id="playerToast" role="status" aria-live="polite"></p>
+          <figcaption class="player-caption">
+            再生画面のイメージ。実際のアプリでは ¥120 / ¥500 / ¥1,000 と 100 字までのメッセージを送れます。
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ==================== できること ==================== -->
+    <section class="section" id="about">
+      <div class="wrap">
+        <h2>できること</h2>
+        <div class="audience">
+          <section class="aud">
+            <h3>リスナーの方へ</h3>
+            <ul class="aud-list">
+              <li><strong>番組を探して、聴く</strong> — Apple Podcasts に登録された番組を検索・フォロー。続きから再生、次に再生（キュー）、スリープタイマー、速度変更にも対応します</li>
+              <li><strong>気に入った回に ♡ 応援</strong> — ¥120 / ¥500 / ¥1,000 から選んで、100 字までのメッセージを添えられます</li>
+              <li><strong>「この瞬間に応援」</strong> — 聴いている位置（例: 12:34）を添えて送れるので、「このお話が好きでした」と届けられます</li>
+            </ul>
+          </section>
+          <section class="aud">
+            <h3>配信者の方へ</h3>
+            <ul class="aud-list">
+              <li><strong>応援が見えるダッシュボード</strong> — 自分の番組に届いた応援を、エピソード別・再生位置つきで確認できます</li>
+              <li><strong>簡単な本人確認</strong> — 番組の説明欄に確認コードを一時的に貼るだけで「確認済み」バッジが付きます（書類は不要）</li>
+            </ul>
+          </section>
+        </div>
+        <p class="privacy-note">
+          リスナー用の機能はアカウント登録なしで使えます（データは端末の中にだけ保存されます）。
+          音声は配信元のサーバーから直接届くため、アプリが保存・再配信することはありません。
+        </p>
+      </div>
+    </section>
+
+    <!-- ==================== 画面 ==================== -->
+    <section class="section section-alt">
+      <div class="wrap">
+        <h2>アプリの画面</h2>
+        <ul class="shots">
+          <li>
+            <figure>
+              <img class="screenshot" src="assets/screenshots/01-home.png" alt="ホーム画面。「次はこちら」という続きから聴ける回のカードが並んでいる様子">
+              <figcaption>ホーム — 「次はこちら」から前回の続きを聴く</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <img class="screenshot" src="assets/screenshots/02-player.png" alt="再生画面。番組アートワークの色を使った大きな画面で、シークバーや速度、スリープタイマーなどの操作が並んでいる様子">
+              <figcaption>再生画面 — 番組の色になった画面で聴く</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <img class="screenshot" src="assets/screenshots/03-tip.png" alt="応援の送信画面。金額（¥120 / ¥500 / ¥1,000）とメッセージ、再生位置を選んで送る様子">
+              <figcaption>応援 — 金額とメッセージと「この瞬間」を送る</figcaption>
+            </figure>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ==================== テスター募集要項 ==================== -->
+    <section class="section" id="join">
+      <div class="wrap">
+        <h2>テスター募集要項</h2>
+        <dl class="terms">
+          <div class="term">
+            <dt>対象</dt>
+            <dd>Android のスマホをお使い方（今回のテストでは iPhone は対象外です）</dd>
+          </div>
+          <div class="term">
+            <dt>期間</dt>
+            <dd>クローズドテストの開始から <strong>14 日間</strong>を予定しています</dd>
+          </div>
+          <div class="term">
+            <dt>参加条件</dt>
+            <dd>Google アカウントをお持ちであること。参加も退出も自由です</dd>
+          </div>
+          <div class="term">
+            <dt>やっていただくこと</dt>
+            <dd>
+              <ol class="todo">
+                <li>いつも聴いているポッドキャストを、PodTip で聴いてみる</li>
+                <li>「♡ 応援」を、テスト用カードで数回試してみる</li>
+                <li>週 1 回くらい、気づいたことをフォームから送る</li>
+              </ol>
+            </dd>
+          </div>
+        </dl>
+
+        <!-- 一番誤解されやすい点（お金）を、ここではっきり伝える -->
+        <aside class="notice">
+          <h3>お金は一切かかりません</h3>
+          <p>
+            テスト版では、すべての決済が Stripe のテストモードで行われます。
+            <strong>実際の請求は一切発生しません。</strong>
+            カード番号は必ずテスト用の <code>4242 4242 4242 4242</code> を使ってください
+            （有効期限は未来の任意の年月、CVC は任意の 3 桁。本物のカード番号は入力しないでください）。
+          </p>
+        </aside>
+
+        <p class="creator-call">
+          ポッドキャストを配信している方は、リスナーとして参加しながら「応援を受け取る側」も試せます
+          （アプリの中から配信者用の画面に登録できます）。配信者目線の感想は特に助かります。
+        </p>
+      </div>
+    </section>
+
+    <!-- ==================== 参加の手順 ==================== -->
+    <section class="section section-dark">
+      <div class="wrap">
+        <h2>参加は 3 ステップ</h2>
+        <ol class="steps">
+          <li class="step">
+            <p class="step-num" aria-hidden="true">1</p>
+            <div class="step-body">
+              <h3>Google グループに参加する</h3>
+              <p>テスター用の Google グループに参加します。承認待ちなしで、すぐ参加できます。</p>
+              <a class="button" data-url="googleGroup" target="_blank" rel="noopener">グループに参加する</a>
+            </div>
+          </li>
+          <li class="step">
+            <p class="step-num" aria-hidden="true">2</p>
+            <div class="step-body">
+              <h3>招待リンクからアプリを入手する</h3>
+              <p>Play ストアから、いつもどおりインストールできます（「提供元不明のアプリ」の許可は不要です）。</p>
+              <a class="button" data-url="optIn" target="_blank" rel="noopener">招待リンクを開く</a>
+            </div>
+          </li>
+          <li class="step">
+            <p class="step-num" aria-hidden="true">3</p>
+            <div class="step-body">
+              <h3>試して、感想を送る</h3>
+              <p>気づいたこと（良い点も困った点も）をフォームから送ってください。1 回だけでも、あとからの追記でも OK です。</p>
+              <a class="button" data-url="feedback" target="_blank" rel="noopener">感想を送るフォームを開く</a>
+            </div>
+          </li>
+        </ol>
+        <p class="steps-note">
+          うまく参加できないときは <a class="inline-link" data-url="feedback" target="_blank" rel="noopener">フォーム</a>から「参加できない」と伝えていただければ、こちらで確認します。
+        </p>
+      </div>
+    </section>
+
+    <!-- ==================== よくある質問 ==================== -->
+    <section class="section">
+      <div class="wrap wrap-narrow">
+        <h2>よくある質問</h2>
+        <div class="faq">
+          <details>
+            <summary>お金は本当にかかりませんか？</summary>
+            <p>かかりません。テスト版ではすべての決済がテストモードで行われ、請求も引き落としも発生しません。応援の金額は記録されますが、実際のお金は動きません。</p>
+          </details>
+          <details>
+            <summary>テストはいつまで？</summary>
+            <p>開始から 14 日間を予定しています。途中でやめるのも自由です（グループから退出するだけです）。</p>
+          </details>
+          <details>
+            <summary>送った感想はどう使われますか？</summary>
+            <p>アプリの改善のためだけに使います。感想の内容を、個人を特定できる形で公開することはありません。</p>
+          </details>
+          <details>
+            <summary>音声はスマホに保存されますか？</summary>
+            <p>保存されません。音声は聴いている間だけ、配信元のサーバーから直接届きます。端末の容量を圧迫しません。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 開発者 ==================== -->
+    <section class="section section-alt">
+      <div class="wrap wrap-narrow">
+        <h2>開発者について</h2>
+        <p class="dev-text">
+          個人で開発しています。日本のインディーポッドキャストが、聴いた人の小さな応援で続いていく仕組みをつくりたくて、PodTip を作りました。
+          テストへのご参加は、この実験の一番大きな支えになります。
+        </p>
+        <p><a class="inline-link" href="https://github.com/erk-artifacts" target="_blank" rel="noopener">GitHub（erk-artifacts）</a></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== フッター ==================== -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="footer-brand">© 2026 erk-artifacts — PodTip</p>
+      <p class="footer-note">このページはテスター募集用です。アプリは現在準備中で、一般公開に向けて調整を進めています。</p>
+    </div>
+  </footer>
+
+  <!-- 参加に必要な URL をまとめた設定ファイル（js/config.js）を読み込んでから、動作を書いた main.js を読み込みます -->
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
