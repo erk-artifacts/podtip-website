@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <!-- スマホ縦画面を基本にした設定（Play ストアから来る人の多くがスマホのため） -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>PodTip プライバシーポリシー</title>
+  <meta name="description" content="PodTip（ポッドキャスト投げ銭アプリ）が、どんな情報をどう扱うかを説明するページです。むずかしい言葉を避けて書いています。">
+  <meta name="robots" content="noindex">
+  <!-- ↑ 検索エンジンに載せる必要のない法的文書なので、検索結果からは除外しておく -->
+
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ==================== ヘッダー（トップページと共通の意匠） ==================== -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <p class="brand">
+        <img class="brand-icon" src="assets/icon.png" alt="" width="28" height="28">
+        <span>PodTip</span>
+        <span class="badge">テスト版</span>
+      </p>
+      <a class="header-link" href="./">テスター募集ページへ</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ==================== 表紙（このページが何かをひと目で） ==================== -->
+    <section class="hero">
+      <div class="wrap wrap-narrow">
+        <p class="eyebrow">PRIVACY POLICY</p>
+        <h1>プライバシーポリシー</h1>
+        <p class="lead">
+          PodTip（以下「本アプリ」）が、どんな情報をどう扱うかを説明します。
+          むずかしい言葉を避けて書いています。
+        </p>
+        <p class="doc-updated">最終更新: 2026年9月12日</p>
+      </div>
+    </section>
+
+    <!-- ==================== 本文（条ごとに見出しを並べた読み物） ==================== -->
+    <section class="section" style="padding-top:0">
+      <div class="wrap wrap-narrow legal">
+
+        <h3>1. はじめに</h3>
+        <p>
+          この文書は、本アプリをお使いになる際に、どんな情報がどこに保存・送信されるかを
+          お示しするものです。気がかりな点がありましたら、第 10 条のお問い合わせ先までご連絡ください。
+        </p>
+
+        <h3>2. 端末の中にだけ保存する情報（サーバーへ送りません）</h3>
+        <p>次の情報は、<strong>お使いの端末の中にだけ</strong>保存されます。開発者のサーバーにも、外部のどこにも送信しません。</p>
+        <ul class="doc-list">
+          <li>フォローしている番組</li>
+          <li>保存したエピソード</li>
+          <li>どのエピソードをどこまで聴いたか（再生位置・再生済みかどうか）</li>
+          <li>再生履歴</li>
+          <li>「次に再生」（キュー）の中身</li>
+          <li>設定（スキップ秒数・再生速度・連続再生・外観のライト/ダーク）</li>
+          <li>最近の検索キーワード</li>
+        </ul>
+        <p><strong>アプリを削除すると、これらはすべて消えます。</strong></p>
+
+        <h3>3. 外部に送る情報</h3>
+        <p>本アプリの機能を使うとき、次の先へ情報が送られます。</p>
+        <div class="doc-scroll">
+          <table class="doc-table">
+            <thead>
+              <tr><th>送り先</th><th>送る内容</th><th>目的</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Apple（iTunes Search / Lookup API、Apple の RSS フィードジェネレータ）</td>
+                <td>検索キーワード、番組 ID、通信に伴う IP アドレスなど</td>
+                <td>番組を検索する・ランキングを表示する</td>
+              </tr>
+              <tr>
+                <td>各配信者のサーバー</td>
+                <td>音声・画像・RSS のリクエスト（通信に伴う IP アドレス・ユーザーエージェントを含む）</td>
+                <td>番組を再生する・エピソード一覧を表示する</td>
+              </tr>
+              <tr>
+                <td>Stripe（決済代行）</td>
+                <td>応援の金額・カード情報</td>
+                <td>決済を行う</td>
+              </tr>
+              <tr>
+                <td>Firebase（Google）</td>
+                <td>応援の記録（番組 ID・エピソード ID・金額・メッセージ・聴いていた位置・日時）、配信者のログイン情報</td>
+                <td>応援を記録する・配信者に見せる</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="doc-list">
+          <li><strong>応援の記録には、リスナーを特定できる情報（氏名・メールアドレスなど）を含めません。</strong></li>
+          <li>配信者としてログインする場合のみ、メールアドレスが Firebase に保存されます。</li>
+          <li>カード情報は<strong>本アプリを通らず Stripe に直接送られ</strong>、開発者もカード番号を知ることはありません。</li>
+        </ul>
+        <aside class="notice">
+          <h3>テスト版について（現在配布中のバージョン）</h3>
+          <p>
+            テスト版では、すべての決済が Stripe のテストモードで行われます。
+            <strong>実際の請求は一切発生しません。</strong>
+          </p>
+        </aside>
+
+        <h3>4. 収集しない情報</h3>
+        <p>本アプリは次を<strong>収集しません</strong>。</p>
+        <ul class="doc-list">
+          <li>位置情報</li>
+          <li>連絡先・写真・カレンダー</li>
+          <li>広告 ID・行動ターゲティングのためのデータ</li>
+          <li>マイク（録音機能はありません。Android では録音権限を明示的にブロックしています）</li>
+        </ul>
+
+        <h3>5. Cookie・トラッキング</h3>
+        <p>本アプリは、広告や解析のための Cookie・トラッキングツールを<strong>使いません</strong>。</p>
+
+        <h3>6. 子どものプライバシー</h3>
+        <p>
+          本アプリは、13 歳未満の方から意図的に個人情報を集めることはありません。
+          保護者の方で気になる点があれば、第 10 条の連絡先へご相談ください。
+        </p>
+
+        <h3>7. データの削除方法</h3>
+        <ul class="doc-list">
+          <li>端末内のデータ: <strong>アプリを削除</strong>すれば消えます。設定画面から個別に消すこともできます。</li>
+          <li>応援の記録・配信者アカウント: 第 10 条の連絡先へご連絡ください。</li>
+        </ul>
+
+        <h3>8. 第三者サービスのプライバシーポリシー</h3>
+        <ul class="doc-list">
+          <li><a href="https://stripe.com/jp/privacy" target="_blank" rel="noopener">Stripe のプライバシーポリシー</a></li>
+          <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google（Firebase）のプライバシーポリシー</a></li>
+          <li><a href="https://www.apple.com/legal/privacy/ja/" target="_blank" rel="noopener">Apple のプライバシーポリシー</a></li>
+        </ul>
+
+        <h3>9. 改定</h3>
+        <p>本ポリシーを変更することがあります。重要な変更はアプリ内でお知らせします。</p>
+
+        <h3>10. お問い合わせ</h3>
+        <p>ご質問やデータの削除のご相談は、こちらまでお気軽にどうぞ。</p>
+        <ul class="doc-list">
+          <li>メール: <a class="inline-link" data-url="contact">お問い合わせメールを開く</a></li>
+          <li>テストにご参加中の方: <a class="inline-link" data-url="feedback" target="_blank" rel="noopener">フィードバックフォーム</a>からでも結構です</li>
+          <li>開発者: <a class="inline-link" href="https://github.com/erk-artifacts" target="_blank" rel="noopener">GitHub（erk-artifacts）</a></li>
+        </ul>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== フッター（トップページと共通） ==================== -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="footer-brand">© 2026 erk-artifacts — PodTip</p>
+      <p class="footer-note"><a href="./" style="color:#D8CCC0">テスター募集ページ</a>にもどる</p>
+    </div>
+  </footer>
+
+  <!-- お問い合わせ先など、設定ファイルで変わる部分を組み込む（トップページと同じ仕組み） -->
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

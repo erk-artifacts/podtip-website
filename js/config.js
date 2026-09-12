@@ -20,4 +20,9 @@ const SITE_URLS = {
 
   // (3) フィードバック用 Google フォームの送信URL（例: https://forms.gle/xxxxx）
   feedbackFormUrl: "PASTE_FEEDBACK_FORM_URL_HERE",
+
+  // (4) プライバシーポリシーに載せるお問い合わせ先のメールアドレス
+  //     （例: podtip@example.com）。公開して良いアドレスを書いてください。
+  //     「PASTE_」のままでもページは壊れません（お問い合わせ欄が「準備中」になります）。
+  contactEmail: "PASTE_CONTACT_EMAIL_HERE",
 };

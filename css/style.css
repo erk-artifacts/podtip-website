@@ -528,6 +528,73 @@ a.button.is-pending { background: var(--muted); }
   .term { grid-template-columns: 9em 1fr; gap: 16px; }
 }
 
+/* ============================================================
+   プライバシーポリシーなど、文書ページの体裁（privacy.html）
+   ------------------------------------------------------------
+   トップページの意匠（▸ のリスト・罫線・暖かい色）をそのまま使い、
+   条文として読みやすい余白に整えています。
+   ============================================================ */
+.legal h3 {
+  margin-top: 40px;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: .01em;
+}
+.legal h3:first-child { margin-top: 0; }
+.legal p { margin-top: 12px; color: var(--ink-soft); }
+.legal strong { color: var(--ink); }
+
+.doc-updated {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.doc-list { margin-top: 10px; display: grid; gap: 8px; }
+.doc-list li {
+  position: relative;
+  padding-left: 20px;
+  color: var(--ink-soft);
+}
+.doc-list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--brand);
+}
+
+/* 「外部に送る情報」の表。スマホでは横に動かせるように包んでいる */
+.doc-scroll {
+  margin-top: 14px;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+}
+.doc-table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.doc-table th, .doc-table td {
+  padding: 12px 14px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+  line-height: 1.65;
+}
+.doc-table th {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--brand-strong);
+  letter-spacing: .06em;
+  background: var(--paper-2);
+  white-space: nowrap;
+}
+.doc-table tr:last-child td { border-bottom: none; }
+.doc-table td { color: var(--ink-soft); }
+
 /* ---------- 「動きを減らす」設定をしている人への配慮 ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

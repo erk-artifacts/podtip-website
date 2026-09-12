@@ -18,11 +18,18 @@
     googleGroup: (typeof SITE_URLS !== "undefined" && SITE_URLS.googleGroupUrl) || "",
     optIn: (typeof SITE_URLS !== "undefined" && SITE_URLS.optInUrl) || "",
     feedback: (typeof SITE_URLS !== "undefined" && SITE_URLS.feedbackFormUrl) || "",
+    contact: (typeof SITE_URLS !== "undefined" && SITE_URLS.contactEmail) || "",
   };
 
   var links = document.querySelectorAll("[data-url]");
   links.forEach(function (a) {
-    var url = linkMap[a.getAttribute("data-url")] || "";
+    var kind = a.getAttribute("data-url");
+    var url = linkMap[kind] || "";
+
+    // お問い合わせ先はメールアドレスなので、リンクは mailto: にする
+    if (kind === "contact" && url && url.indexOf("PASTE_") !== 0) {
+      url = "mailto:" + url;
+    }
 
     // 「PASTE_」で始まる = まだ未設定。リンクとして踏めない状態にする
     if (!url || url.indexOf("PASTE_") === 0) {
