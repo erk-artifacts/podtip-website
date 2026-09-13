@@ -123,7 +123,7 @@
 
     // 「届きました」の表示（2.5 秒で消える）
     clearTimeout(toastTimer);
-    toast.textContent = "¥120 の「ありがとう」が " + format(elapsed) + " の瞬間に届きました（デモです）";
+    toast.textContent = "「ありがとう」が " + format(elapsed) + " の瞬間に届きました（デモです）";
     toast.classList.add("is-shown");
     toastTimer = window.setTimeout(function () {
       toast.classList.remove("is-shown");

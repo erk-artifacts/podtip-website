@@ -5,13 +5,13 @@
   <!-- スマホ縦画面を基本にした設定（募集対象が Android スマホユーザーのため） -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>PodTip — ポッドキャスト投げ銭アプリ（テスター募集中）</title>
-  <meta name="description" content="好きなポッドキャストを聴いて、心に残った回に少額の応援を送れるアプリです。番組の検索・フォロー・続きから再生・キューに対応。Android クローズドテストのテスターを募集中です。">
+  <title>PodTip — ポッドキャスト応援アプリ（テスター募集中）</title>
+  <meta name="description" content="好きなポッドキャストを聴いて、心に残った回に ♡ で応援を届けられるアプリです。番組の検索・フォロー・続きから再生・キューに対応。Android クローズドテストのテスターを募集中です。">
 
   <!-- SNS でシェアされたときの見え方（OGP）。URL は公開後の住所に合わせてある -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://erk-artifacts.github.io/podtip-website/">
-  <meta property="og:title" content="PodTip — ポッドキャスト投げ銭アプリ（テスター募集中）">
+  <meta property="og:title" content="PodTip — ポッドキャスト応援アプリ（テスター募集中）">
   <meta property="og:description" content="聴いたその回に、“ありがとう”を届けられる Android アプリ。クローズドテストのテスターを募集中です（お金はかかりません）。">
   <meta property="og:image" content="https://erk-artifacts.github.io/podtip-website/assets/icon.png">
 
@@ -40,7 +40,7 @@
         <p class="eyebrow">Android クローズドテスト実施中</p>
         <h1>聴いたその回に、<br><em>“ありがとう”</em>を届けられる。</h1>
         <p class="lead">
-          PodTip は、好きなポッドキャストを聴いて、心に残った回に少額の応援を送れるアプリです。
+          PodTip は、好きなポッドキャストを聴いて、心に残った回に ♡ で応援を届けられるアプリです。
           現在は公開前のテスト段階で、<strong>一緒に試してくださるテスターを募集中</strong>です。
         </p>
         <div class="hero-cta">
@@ -69,14 +69,14 @@
           <div class="player-actions">
             <button type="button" class="tip-button" id="tipDemo">
               <span class="tip-heart" aria-hidden="true">♡</span>
-              応援する<span class="tip-sub">¥120・デモ</span>
+              応援する<span class="tip-sub">リクエスト・デモ</span>
             </button>
             <p class="player-note">♡ を押すと、いま聴いている位置に「ありがとう」が届きます（ページ内のお試しです）</p>
           </div>
           <!-- 押したときの「届きました」表示（音は出ません） -->
           <p class="player-toast" id="playerToast" role="status" aria-live="polite"></p>
           <figcaption class="player-caption">
-            再生画面のイメージ。実際のアプリでは ¥120 / ¥500 / ¥1,000 と 100 字までのメッセージを送れます。
+            再生画面のイメージ。実際のアプリでは ♡ 応援リクエストとして、配信者に気持ちが届きます（お金はかかりません）。
           </figcaption>
         </figure>
       </div>
@@ -91,14 +91,14 @@
             <h3>リスナーの方へ</h3>
             <ul class="aud-list">
               <li><strong>番組を探して、聴く</strong> — Apple Podcasts に登録された番組を検索・フォロー。続きから再生、次に再生（キュー）、スリープタイマー、速度変更にも対応します</li>
-              <li><strong>気に入った回に ♡ 応援</strong> — ¥120 / ¥500 / ¥1,000 から選んで、100 字までのメッセージを添えられます</li>
-              <li><strong>「この瞬間に応援」</strong> — 聴いている位置（例: 12:34）を添えて送れるので、「このお話が好きでした」と届けられます</li>
+              <li><strong>気に入った回に ♡ 応援リクエスト</strong> — 「応援したい」の気持ちを、お金を払わずに送れます（匿名・1 番組につき 1 回）</li>
+              <li><strong>「この瞬間に応援」</strong> — ♡ を押したときの聴いている位置（例: 12:34）も添えて届くので、「このお話が好きでした」が伝わります</li>
             </ul>
           </section>
           <section class="aud">
             <h3>配信者の方へ</h3>
             <ul class="aud-list">
-              <li><strong>応援が見えるダッシュボード</strong> — 自分の番組に届いた応援を、エピソード別・再生位置つきで確認できます</li>
+              <li><strong>応援リクエストが見えるダッシュボード</strong> — リスナーから ♡ 応援リクエストが何件届いたかを確認できます</li>
               <li><strong>簡単な本人確認</strong> — 番組の説明欄に確認コードを一時的に貼るだけで「確認済み」バッジが付きます（書類は不要）</li>
             </ul>
           </section>
@@ -129,8 +129,8 @@
           </li>
           <li>
             <figure>
-              <img class="screenshot" src="assets/screenshots/03-tip.png" alt="応援の送信画面。金額（¥120 / ¥500 / ¥1,000）とメッセージ、再生位置を選んで送る様子">
-              <figcaption>応援 — 金額とメッセージと「この瞬間」を送る</figcaption>
+              <img class="screenshot" src="assets/screenshots/03-tip.png" alt="応援の送信画面。♡ 応援リクエストとして、聴いている回の情報とともに気持ちを送る様子">
+              <figcaption>応援 — ♡ で気持ちを送る（画像は更新予定です）</figcaption>
             </figure>
           </li>
         </ul>
@@ -159,7 +159,7 @@
             <dd>
               <ol class="todo">
                 <li>いつも聴いているポッドキャストを、PodTip で聴いてみる</li>
-                <li>「♡ 応援」を、テスト用カードで数回試してみる</li>
+                <li>「♡ 応援リクエスト」を数回試してみる（お金はかかりません）</li>
                 <li>週 1 回くらい、気づいたことをフォームから送る</li>
               </ol>
             </dd>
@@ -170,10 +170,9 @@
         <aside class="notice">
           <h3>お金は一切かかりません</h3>
           <p>
-            テスト版では、すべての決済が Stripe のテストモードで行われます。
-            <strong>実際の請求は一切発生しません。</strong>
-            カード番号は必ずテスト用の <code>4242 4242 4242 4242</code> を使ってください
-            （有効期限は未来の任意の年月、CVC は任意の 3 桁。本物のカード番号は入力しないでください）。
+            今回のテスト版には<strong>決済機能がありません</strong>。請求も引き落としも一切発生しません。
+            ♡ を押すと「応援したい」の申し送り（応援リクエスト）として配信者に届きます。
+            応援（投げ銭）を受け取る仕組みは、ストアの決済ルールへの対応を進めたうえで改めてご案内する予定です。
           </p>
         </aside>
 
@@ -227,7 +226,7 @@
         <div class="faq">
           <details>
             <summary>お金は本当にかかりませんか？</summary>
-            <p>かかりません。テスト版ではすべての決済がテストモードで行われ、請求も引き落としも発生しません。応援の金額は記録されますが、実際のお金は動きません。</p>
+            <p>かかりません。今回のテスト版には決済機能がなく、♡ 応援リクエストは無料で送れます。請求も引き落としも発生しません。</p>
           </details>
           <details>
             <summary>テストはいつまで？</summary>
