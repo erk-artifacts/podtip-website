@@ -13,10 +13,8 @@
 
   // ---------- (1) URL の組み込み ----------
 
-  // data-url="googleGroup" などの属性が付いたリンクを全部探す
+  // data-url="feedback" などの属性が付いたリンクを全部探す
   var linkMap = {
-    googleGroup: (typeof SITE_URLS !== "undefined" && SITE_URLS.googleGroupUrl) || "",
-    optIn: (typeof SITE_URLS !== "undefined" && SITE_URLS.optInUrl) || "",
     feedback: (typeof SITE_URLS !== "undefined" && SITE_URLS.feedbackFormUrl) || "",
     contact: (typeof SITE_URLS !== "undefined" && SITE_URLS.contactEmail) || "",
   };

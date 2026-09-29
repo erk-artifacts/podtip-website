@@ -1,5 +1,5 @@
 /* ============================================================
-   PodTip テスター募集ページのスタイル
+   PodTip アプリ紹介ページのスタイル
    ------------------------------------------------------------
    色の考え方: ブランドのオレンジ（#E8590C）の「明るい面」と
    「暗い面（焦げたような濃い茶）」だけでページを作っています。
@@ -150,7 +150,6 @@ a { color: var(--brand-strong); }
 }
 .cta:hover { background: #D9480F; transform: translateY(-1px); }
 .cta:active { transform: translateY(0); }
-.cta-note { margin-top: 12px; font-size: 13px; color: var(--muted); }
 
 /* ============================================================
    再生画面のデモ（このページの顔）
@@ -377,34 +376,8 @@ a { color: var(--brand-strong); }
 }
 
 /* ============================================================
-   テスター募集要項
+   「お金はかかりません」の強調枠
    ============================================================ */
-.terms { margin-top: 28px; }
-.term {
-  display: grid;
-  gap: 4px;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--line);
-}
-.term dt {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--brand-strong);
-  letter-spacing: .08em;
-}
-.term dd { margin: 0; color: var(--ink-soft); }
-.todo { display: grid; gap: 6px; }
-.todo li { position: relative; padding-left: 22px; }
-.todo li::before {
-  content: counter(list-item) ".";
-  position: absolute;
-  left: 0;
-  font-weight: 700;
-  color: var(--brand-strong);
-  font-variant-numeric: tabular-nums;
-}
-
-/* 「お金はかかりません」の強調枠 */
 .notice {
   margin-top: 28px;
   background: #FAF0E0;
@@ -428,47 +401,9 @@ a { color: var(--brand-strong); }
   color: var(--ink-soft);
 }
 
-/* ============================================================
-   参加は 3 ステップ
-   ============================================================ */
-.steps { margin-top: 28px; display: grid; gap: 28px; }
-.step { display: flex; gap: 18px; }
-.step-num {
-  flex: none;
-  width: 44px;
-  height: 44px;
-  display: grid;
-  place-items: center;
-  border: 2px solid var(--brand);
-  border-radius: 50%;
-  font-size: 18px;
-  font-weight: 800;
-  color: var(--brand-strong);
-  font-variant-numeric: tabular-nums;
-}
-.step-body h3 { font-size: 17px; font-weight: 800; }
-.step-body p { margin-top: 6px; color: var(--ink-soft); }
-
-.button {
-  display: inline-block;
-  margin-top: 14px;
-  background: var(--brand);
-  color: #fff;
-  font-size: 15px;
-  font-weight: 700;
-  text-decoration: none;
-  padding: 12px 24px;
-  border-radius: 999px;
-  transition: background .15s ease;
-}
-.button:hover { background: #D9480F; }
-
-/* URL がまだ未設定のボタン（js/main.js が付けた印） */
+/* ---------- URL がまだ未設定のリンク（js/main.js が付けた印） ---------- */
 .is-pending { opacity: .55; cursor: default; }
-a.button.is-pending { background: var(--muted); }
 .inline-link.is-pending { color: var(--muted); text-decoration: none; }
-
-.steps-note { margin-top: 24px; font-size: 13.5px; color: var(--muted); }
 .inline-link { color: var(--brand-strong); }
 
 /* ============================================================
@@ -523,9 +458,6 @@ a.button.is-pending { background: var(--muted); }
   /* スクリーンショットを 3 枚横並びに */
   .shots { grid-template-columns: repeat(3, 1fr); }
   .shots figure { max-width: 260px; }
-
-  /* 募集要項を見開きっぽく 2 列に */
-  .term { grid-template-columns: 9em 1fr; gap: 16px; }
 }
 
 /* ============================================================
